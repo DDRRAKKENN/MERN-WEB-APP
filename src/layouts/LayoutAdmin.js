@@ -5,6 +5,8 @@ import MenuTop from "../components/Admin/MenuTop";
 import MenuSider from "../components/Admin/MenuSider";
 import AdminSignIn from "../pages/admin/SignIn/SignIn";
 
+import {getAccessToken, getRefreshToken} from "../api/auth";
+
 import "./LayoutAdmin";
 
 export default function LayoutAdmin(props){
@@ -14,6 +16,14 @@ export default function LayoutAdmin(props){
     const{Header, Content, Footer}=Layout;
 
     const user = null;
+    
+    const accesToken = getAccessToken();
+    console.log("accesToken: "+accesToken);
+
+    const refreshToken = getRefreshToken();
+    console.log("refreshToken: "+ refreshToken);
+
+
     if(!user){
         return(
             <>
